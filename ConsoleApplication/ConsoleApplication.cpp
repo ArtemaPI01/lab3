@@ -6,6 +6,7 @@
 #include <iostream>
 #include <Windows.h>
 #include "Shop.h"
+#include "Owner.h"
 
 
 int main()
@@ -14,6 +15,7 @@ int main()
     SetConsoleCP(1251);
     char x[] = "dada";
     Shop* Ashan;
+    Owner* Alisher;
     Ashan = new Shop[5];
     for (int i = 0; i < 5; i++)
     {
@@ -22,5 +24,9 @@ int main()
         Ashan[i].cloakShop();
     }
     delete[] Ashan;
+    Alisher = new Owner;
+    Alisher->enter();
+    Alisher->print();
+    delete Alisher;
     _getch;
 }
