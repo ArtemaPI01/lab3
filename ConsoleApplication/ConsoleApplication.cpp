@@ -9,6 +9,7 @@
 #include "Owner.h"
 #include "Security.h"
 #include "Warehouse.h"
+#include "Boxoffice.h"
 
 
 int main()
@@ -20,6 +21,7 @@ int main()
     Owner* Alisher;
     Security ALFA;
     Warehouse *a;
+    Boxoffice *b;
     Ashan = new Shop[5];
     for (int i = 0; i < 5; i++)
     {
@@ -39,5 +41,10 @@ int main()
     (*a).print();
     printf("\nВремя разгрузки %d (тонн) - %d минут", 10, (*a).cloakWarehouse(10));
     delete a;
+    b = new Boxoffice;
+    b->init(20, 13, x);
+    b->print();
+    printf("\nВремя обслуживания 100 клиентов - %d минуты\n", b->cloakBoxoffice(100));
+    delete b;
     _getch;
 }
