@@ -7,6 +7,7 @@
 #include <Windows.h>
 #include "Shop.h"
 #include "Owner.h"
+#include "Security.h"
 
 
 int main()
@@ -16,6 +17,7 @@ int main()
     char x[] = "dada";
     Shop* Ashan;
     Owner* Alisher;
+    Security ALFA;
     Ashan = new Shop[5];
     for (int i = 0; i < 5; i++)
     {
@@ -28,5 +30,7 @@ int main()
     Alisher->enter();
     Alisher->print();
     delete Alisher;
+    ALFA.enter();
+    ALFA.print();
     _getch;
 }
