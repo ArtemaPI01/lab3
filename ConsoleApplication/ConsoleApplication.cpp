@@ -8,6 +8,7 @@
 #include "Shop.h"
 #include "Owner.h"
 #include "Security.h"
+#include "Warehouse.h"
 
 
 int main()
@@ -18,6 +19,7 @@ int main()
     Shop* Ashan;
     Owner* Alisher;
     Security ALFA;
+    Warehouse *a;
     Ashan = new Shop[5];
     for (int i = 0; i < 5; i++)
     {
@@ -32,5 +34,10 @@ int main()
     delete Alisher;
     ALFA.enter();
     ALFA.print();
+    a = new Warehouse;
+    (*a).init(20, x,x);
+    (*a).print();
+    printf("\nВремя разгрузки %d (тонн) - %d минут", 10, (*a).cloakWarehouse(10));
+    delete a;
     _getch;
 }
