@@ -3,27 +3,39 @@
 #include <conio.h>
 #include <stdio.h>
 #include "Warehouse.h"
+#include <string>
 
-void Warehouse::init(int c, char p[100], char d[100]) {
-	count = c;
-	strcpy(products, p);
-	strcpy(data, d);
+void Warehouse::init(std::string products, int station) {
+	this->products = products;
+	this->station = station;
 }
 
 void Warehouse::enter() {
-	printf("Кол-во рабочих на складе: ");
-	scanf("%d", &count);
-	printf("\nТовар: ");
-	getchar();
-	gets_s(products);
-	printf("\nДата поставок: ");
-	scanf("%s", data);
+	std::cout << "\nТовар: ";
+	getline(std::cin, products);
+	std::cout << "Кол-во пунктов приема: ";
+	std::cin >> station;
 }
 
 void Warehouse::print() {
-	printf("\nСклад\nКол-во рабочих - %d\nТовар - %s\nДата - %s\n", count, products, data);
+	std::cout << "\nСклад\nТовар - " << products << "\nПункты приема - " << station << "\n";
 }
 
 int Warehouse::cloakWarehouse(int x) {
-	return (x * 10 / count) * 10;
+	int i = 0;
+	int time = 0;
+	while (i < x)
+	{
+		time += 15;
+		i += station;
+	}
+	return time;
+}
+
+void Warehouse::Poisk(std::string product) {
+	size_t pos = products.find(product);
+	if (pos != std::string::npos)
+		std::cout << product << " есть на складе\n";
+	else
+		std::cout << product << " нет на складе\n";
 }

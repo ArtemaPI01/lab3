@@ -3,23 +3,23 @@
 #include <conio.h>
 #include <stdio.h>
 #include "Security.h"
+#include <string>
 
-void Security::init(char o[100], int c, char i[100]) {
-	strcpy(org, o);
-	count = c;
-	strcpy(items, i);
+void Security::init(std::string org, int count, std::string items) {
+	this->org = org;
+	this->count = count;
+	this->items = items;
 }
 
 void Security::enter() {
-	printf("Введите организацию: ");
-	scanf("%s", org);
-	printf("\nВведите кол-во сотрудников: ");
+	std::cout << "Введите организацию: ";
+	getline(std::cin, org);
+	std::cout << "\nВведите кол-во сотрудников: ";
 	scanf("%d", &count);
-	printf("\nВведите оборудование: ");
-	getchar();
-	gets_s(items);
+	std::cout << "\nВведите оборудование: ";
+	getline(std::cin, items);
 }
 
 void Security::print() {
-	printf("\nИнформация об охране:\nОрганизация - %s\nКол-во охранников - %d\nОборудование - %s\n", org, count, items);
+	std::cout << "\nИнформация об охране:\nОрганизация - "<<org<<"\nКол-во охранников - "<<count<<"\nОборудование - "<<items<<"\n", org, count, items;
 }

@@ -3,28 +3,30 @@
 #include <conio.h>
 #include <stdio.h>
 #include "Shop.h"
+#include <vector>
+#include <string>
+#include <sstream>
 
-void Shop::init(char n[100], char t[100], char s[100], char c[100]) { //Метод создания 
-	strcpy(name, n);
-	strcpy(type, t);
-	strcpy(street, s);
-	strcpy(cloak, c);
+void Shop::init(std::string name, std::string type, std::string street, std::string cloak) {
+	this->name = name;
+	this->type = type;
+	this->street = street;
+	this->cloak = cloak;
 }
 
 void Shop::enter() {
-	printf("Введите название: ");
-	scanf("%s", name);
-	printf("\nВведите тип: ");
-	scanf("%s", type);
-	printf("\nВведите улицу: ");
-	getchar();
-	gets_s(street);
-	printf("\nВведите часы работы: ");
-	scanf("%s", cloak);
+	std::cout << "Введите название: ";
+	getline(std::cin, name);
+	std::cout << "\nВведите тип: ";
+	getline(std::cin, type);
+	std::cout << "\nВведите улицу: ";
+	getline(std::cin, street);
+	std::cout << "\nВведите часы работы: ";
+	getline(std::cin, cloak);
 }
 
 void Shop::print() {
-	printf("\nИнформация о магазине:\nНазвание - %s\nТип - %s\nУлица - %s\nЧасы работы - %s\n", name, type, street, cloak);
+	std::cout << "\nИнформация о магазине:\nНазвание - "<< name <<"\nТип - "<< type <<"\nУлица - "<< street <<"\nЧасы работы - "<< cloak <<"\n", name, type, street, cloak;
 }
 void Shop::cloakShop() {
 	char str1[5];
@@ -33,8 +35,8 @@ void Shop::cloakShop() {
 	for (int i = 0; i < 5; i++)
 	{
 		if (i == 2) i++;
-		str1[k] = cloak[i];
-		str2[k] = cloak[i + 6];
+		str1[k] = cloak.c_str()[i];
+		str2[k] = cloak.c_str()[i + 6];
 		k++;
 	}
 	int a = atoi(str2) / 100 - atoi(str1) / 100;
@@ -43,5 +45,5 @@ void Shop::cloakShop() {
 		b += 60;
 		a--;
 	}
-	printf("\nЧасы работы - %s\nЧасы - %d\nМинуты - %d\n", cloak, a, b);
+	std::cout << "\nЧасы работы - "<< cloak <<"\nЧасы -  "<< a<<" \nМинуты - "<< b <<"\n";
 }

@@ -3,24 +3,26 @@
 #include <conio.h>
 #include <stdio.h>
 #include "Owner.h"
+#include <string>
 
-void Owner::init(char n[100], int i, int e) { //Метод создания 
-	strcpy(fio, n);
-	income = i;
-	expenses = e;
+
+void Owner::init(std::string fio, int income, int expenses) {
+	this->fio = fio;
+	this->income = income;
+	this->expenses = expenses;
 }
 
 void Owner::enter() {
-	printf("Введите ФИО владельца: ");
-	scanf("%s", fio);
-	printf("\nВведите доходы: ");
-	scanf("%d", &income);
-	printf("\nВведите расходы: ");
-	scanf("%d", &expenses);
+	std::cout << "Введите ФИО владельца: ";
+	getline(std::cin, fio);
+	std::cout << "\nВведите доходы: ";
+	std::cin >> income;
+	std::cout << "\nВведите расходы: ";
+	std::cin >> expenses;
 }
 
 void Owner::print() {
-	printf("\nИнформация о владельце:\nФИО - %s\nДоходы - %d\nРасходы - %d\nПрибыль - %d\n", fio, income, expenses, profitOwner());
+	std::cout <<"\nИнформация о владельце:\nФИО - "<<fio<<"\nДоходы - "<<income<<"\nРасходы - "<<expenses<<"\nПрибыль - "<< profitOwner() <<"\n";
 }
 int Owner::profitOwner() {
 	return income - expenses;

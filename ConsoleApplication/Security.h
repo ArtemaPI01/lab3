@@ -2,12 +2,11 @@
 class Security
 {
 private:
-	char org[100];
+	std::string org;
 	int count;
-	char items[100];
+	std::string items;
 public:
-	void init(char org[100], int count, char items[100]);
+	void init(std::string org, int count, std::string items);
 	void enter();
 	void print();
 };
-

@@ -1,12 +1,12 @@
 #pragma once
 class Shop {
 private:
-	char name[100];
-	char type[100];
-	char street[100];
-	char cloak[100];
+	std::string name;
+	std::string type;
+	std::string street;
+	std::string cloak;
 public:
-	void init(char name[100], char type[100], char street[100], char cloak[100]);
+	void init(std::string name, std::string type, std::string street, std::string cloak);
 	void enter();
 	void print();
 	void cloakShop();

@@ -10,41 +10,43 @@
 #include "Security.h"
 #include "Warehouse.h"
 #include "Boxoffice.h"
+#include <string>
 
+using namespace std;
 
 int main()
 {
     setlocale(LC_ALL, "Rus");
     SetConsoleCP(1251);
-    char x[] = "dada";
     Shop* Ashan;
     Owner* Alisher;
     Security ALFA;
     Warehouse *a;
     Boxoffice *b;
-    Ashan = new Shop[5];
-    for (int i = 0; i < 5; i++)
+    Ashan = new Shop[2];
+    for (int i = 0; i < 2; i++)
     {
         Ashan[i].enter();
         Ashan[i].print();
         Ashan[i].cloakShop();
     }
     delete[] Ashan;
-    Alisher = new Owner;
+    Alisher = new Owner();
     Alisher->enter();
     Alisher->print();
     delete Alisher;
     ALFA.enter();
     ALFA.print();
     a = new Warehouse;
-    (*a).init(20, x,x);
-    (*a).print();
-    printf("\nВремя разгрузки %d (тонн) - %d минут", 10, (*a).cloakWarehouse(10));
+    (*a).init("Арбуз Тыква Огурец", 7);
+    (*a).print(); 
+    (*a).cloakWarehouse(20);
+    (*a).Poisk("Тыква");
     delete a;
     b = new Boxoffice;
-    b->init(20, 13, x);
+    b->init(20, 13, "АБВ");
     b->print();
-    printf("\nВремя обслуживания 100 клиентов - %d минуты\n", b->cloakBoxoffice(100));
+    b->cloakBoxoffice(100);
     delete b;
     _getch;
 }
