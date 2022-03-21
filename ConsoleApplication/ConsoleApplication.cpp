@@ -2,7 +2,6 @@
 #include "locale.h"
 #include <stdio.h>
 #include <conio.h>
-#include <malloc.h>
 #include <iostream>
 #include <Windows.h>
 #include "Shop.h"
@@ -23,8 +22,8 @@ int main()
     Security ALFA;
     Warehouse *a;
     Boxoffice *b;
-    Ashan = new Shop[2];
-    for (int i = 0; i < 2; i++)
+    Ashan = new Shop[1];
+    for (int i = 0; i < 1; i++)
     {
         Ashan[i].enter();
         Ashan[i].print();
@@ -40,7 +39,7 @@ int main()
     a = new Warehouse;
     (*a).init("Арбуз Тыква Огурец", 7);
     (*a).print(); 
-    (*a).cloakWarehouse(20);
+    std::cout << "\nКол-во пунктов приема: " << (*a).cloakWarehouse(20) << "\n";
     (*a).Poisk("Тыква");
     delete a;
     b = new Boxoffice;

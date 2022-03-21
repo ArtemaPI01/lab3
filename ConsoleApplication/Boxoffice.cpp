@@ -12,12 +12,13 @@ void Boxoffice::init(int workers, int count, std::string fio) {
 }
 
 void Boxoffice::enter() {
+	std::cout << "\nВведите ФИО старшего кассира : ";
+	getline(std::cin, fio);
 	std::cout << "Введите кол-во касс рабочих: ";
 	std::cin >> workers;
 	std::cout << "\nВведите кол-во касс: ";
 	std::cin >> count;
-	std::cout << "\nВведите ФИО старшего кассира : ";
-	getline(std::cin, fio);
+	while (getchar() != '\n');
 }
 
 void Boxoffice::print() {

@@ -13,16 +13,18 @@ void Owner::init(std::string fio, int income, int expenses) {
 }
 
 void Owner::enter() {
-	std::cout << "Введите ФИО владельца: ";
+	std::cout << "\nВведите ФИО владельца: ";
 	getline(std::cin, fio);
 	std::cout << "\nВведите доходы: ";
 	std::cin >> income;
+	while (getchar() != '\n');
 	std::cout << "\nВведите расходы: ";
 	std::cin >> expenses;
+	while (getchar() != '\n');
 }
 
 void Owner::print() {
-	std::cout <<"\nИнформация о владельце:\nФИО - "<<fio<<"\nДоходы - "<<income<<"\nРасходы - "<<expenses<<"\nПрибыль - "<< profitOwner() <<"\n";
+	std::cout <<"\nИнформация о владельце:\nФИО - "<<fio<<"\nДоходы - "<<income<<"\nРасходы - "<<expenses<<"\nПрибыль - "<< profitOwner() <<"\n\n";
 }
 int Owner::profitOwner() {
 	return income - expenses;

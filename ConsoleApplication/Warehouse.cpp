@@ -15,6 +15,7 @@ void Warehouse::enter() {
 	getline(std::cin, products);
 	std::cout << "Кол-во пунктов приема: ";
 	std::cin >> station;
+	while (getchar() != '\n');
 }
 
 void Warehouse::print() {

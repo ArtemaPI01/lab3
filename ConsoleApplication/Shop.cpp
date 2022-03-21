@@ -3,9 +3,7 @@
 #include <conio.h>
 #include <stdio.h>
 #include "Shop.h"
-#include <vector>
 #include <string>
-#include <sstream>
 
 void Shop::init(std::string name, std::string type, std::string street, std::string cloak) {
 	this->name = name;

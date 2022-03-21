@@ -14,10 +14,11 @@ void Security::init(std::string org, int count, std::string items) {
 void Security::enter() {
 	std::cout << "¬ведите организацию: ";
 	getline(std::cin, org);
-	std::cout << "\n¬ведите кол-во сотрудников: ";
-	scanf("%d", &count);
 	std::cout << "\n¬ведите оборудование: ";
 	getline(std::cin, items);
+	std::cout << "\n¬ведите кол-во сотрудников: ";
+	std::cin >> count;
+	while (getchar() != '\n');
 }
 
 void Security::print() {
